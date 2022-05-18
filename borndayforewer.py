@@ -6,13 +6,19 @@
 Задание: переписать код используя как минимум 1 функцию
 """
 
+def check_equ(var, val):
+    if var==val:
+        return True
+    else:
+        return False
+
 year = input('Ввведите год рождения А.С.Пушкина:')
-while year != '1799':
+while not check_equ(year,'1799'):
     print("Не верно")
     year = input('Ввведите год рождения А.С.Пушкина:')
 
 day = input('Ввведите день рождения Пушкин?')
-while day != '6':
+while not check_equ(day,'6'):
     print("Не верно")
     day = input('В какой день июня родился Пушкин?')
 print('Верно')
