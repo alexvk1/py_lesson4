@@ -184,7 +184,11 @@ def my_filter(iterable, function):
     :param function: функция фильтрации
     :return: новая отфильтрованная последовательность
     """
-    pass
+    res=[]
+    for i in iterable:
+        if function(i):
+            res.append(i)
+    return res
 
 
 print(my_filter([1, 2, 3, 4, 5], lambda x: x > 3) == [4, 5])  # True
