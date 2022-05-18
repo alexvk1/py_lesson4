@@ -33,8 +33,12 @@
 
 Для реализации основного меню можно использовать пример ниже или написать свой
 """
+def add_money(sum,val):
+    sum+=val
+    return sum
 
 while True:
+    sum=0
     print('1. пополнение счета')
     print('2. покупка')
     print('3. история покупок')
@@ -42,7 +46,9 @@ while True:
 
     choice = input('Выберите пункт меню')
     if choice == '1':
-        pass
+        val=int(input('Введите сумму:'))
+        sum=add_money(sum,val)
+        print(f'SUM:{sum}')
     elif choice == '2':
         pass
     elif choice == '3':
