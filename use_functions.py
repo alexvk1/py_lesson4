@@ -37,22 +37,42 @@ def add_money(sum,val):
     sum+=val
     return sum
 
+def buy_goods(sum,val):
+    res=False
+    good=''
+    if (val<sum):
+        good=input('Введите название товара:')
+        sum-=val
+        res=True
+    return {'good': good, 'sum': sum, 'res': res}
+
+sum=0
+history=[];
 while True:
-    sum=0
+
     print('1. пополнение счета')
     print('2. покупка')
     print('3. история покупок')
     print('4. выход')
 
-    choice = input('Выберите пункт меню')
+    choice = input('Выберите пункт меню:')
     if choice == '1':
         val=int(input('Введите сумму:'))
         sum=add_money(sum,val)
         print(f'SUM:{sum}')
     elif choice == '2':
-        pass
+        val=int(input('Введите сумму покупки:'))
+        res=buy_goods(sum,val)
+        sum=res['sum']
+        if (res['res']==False):
+            print('У вас мало денег')
+        else:
+            #print('Приемлемо')
+            history.append({'good':res['good'],'val':val})
+
     elif choice == '3':
-        pass
+        for u in history:
+            print(f'{u["good"]}: {u["val"]}')
     elif choice == '4':
         break
     else:
